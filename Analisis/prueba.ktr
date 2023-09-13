@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>ejemplo</name>
+    <name>prueba</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -67,9 +67,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2023&#x2f;09&#x2f;10 13&#x3a;09&#x3a;34.851</created_date>
+  <created_date>2023&#x2f;09&#x2f;12 18&#x3a;11&#x3a;26.104</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2023&#x2f;09&#x2f;10 13&#x3a;09&#x3a;34.851</modified_date>
+  <modified_date>2023&#x2f;09&#x2f;12 18&#x3a;11&#x3a;26.104</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -115,14 +115,13 @@
   <hop> <from>Write to log</from><to>REST Client</to><enabled>Y</enabled> </hop>
   <hop> <from>Write to log 2</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   <hop> <from>User Defined Java Class</from><to>Abort</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values</from><to>Switch &#x2f; Case</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>Join Rows &#x28;cartesian product&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Table input</from><to>Join Rows &#x28;cartesian product&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch &#x2f; Case</from><to>Join Rows &#x28;cartesian product&#x29; 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Table input 2</from><to>Join Rows &#x28;cartesian product&#x29; 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join Rows &#x28;cartesian product&#x29;</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join Rows &#x28;cartesian product&#x29; 2</from><to>Select values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values 2</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>Select values 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values 2</from><to>Sort rows 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows 3</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Abort</name>
@@ -140,8 +139,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>303</xloc>
-      <yloc>160</yloc>
+      <xloc>311</xloc>
+      <yloc>184</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -162,8 +161,8 @@
       <always_log_rows>Y</always_log_rows>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>585</xloc>
-      <yloc>343</yloc>
+      <xloc>593</xloc>
+      <yloc>367</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -191,8 +190,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>585</xloc>
-      <yloc>222</yloc>
+      <xloc>593</xloc>
+      <yloc>246</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -236,39 +235,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>63</xloc>
-      <yloc>236</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Join Rows &#x28;cartesian product&#x29;</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <cache_size>500</cache_size>
-      <main/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue/>
- <function>&#x3d;</function>
- <rightvalue>nombre_C</rightvalue>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1225</xloc>
-      <yloc>329</yloc>
+      <xloc>71</xloc>
+      <yloc>260</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -329,8 +297,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>446</xloc>
-      <yloc>152</yloc>
+      <xloc>454</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -389,6 +357,19 @@
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>id</name>
+        <path>&#x24;.&#x5b;&#x2a;&#x5d;.id</path>
+        <type>None</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <IsInFields>Y</IsInFields>
@@ -404,8 +385,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>881</xloc>
-      <yloc>406</yloc>
+      <xloc>889</xloc>
+      <yloc>430</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -434,8 +415,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>741</xloc>
-      <yloc>240</yloc>
+      <xloc>749</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -478,8 +459,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>444</xloc>
-      <yloc>313</yloc>
+      <xloc>452</xloc>
+      <yloc>337</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -526,8 +507,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>740</xloc>
-      <yloc>405</yloc>
+      <xloc>748</xloc>
+      <yloc>429</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -551,87 +532,15 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
+      </field>      <field>        <name>id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1001</xloc>
-      <yloc>410</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>conexion</connection>
-    <sql>SELECT nombre_C FROM categories&#xd;&#xa;ORDER BY RAND&#x28;&#x29;&#xd;&#xa;LIMIT 3</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1227</xloc>
-      <yloc>230</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>conexion</connection>
-    <schema/>
-    <table>products</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>nombre_P</column_name>
-          <stream_name>nombres</stream_name>
-        </field>
-        <field>
-          <column_name>precio_p</column_name>
-          <stream_name>precios</stream_name>
-        </field>
-        <field>
-          <column_name>categoria</column_name>
-          <stream_name>nombre_C</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1495</xloc>
-      <yloc>448</yloc>
+      <xloc>1009</xloc>
+      <yloc>434</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -709,8 +618,8 @@ try {
     </fields><clear_result_fields>N</clear_result_fields>
 <info_steps></info_steps><target_steps></target_steps><usage_parameters></usage_parameters>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>190</xloc>
-      <yloc>240</yloc>
+      <xloc>198</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -744,8 +653,8 @@ try {
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>324</xloc>
-      <yloc>310</yloc>
+      <xloc>332</xloc>
+      <yloc>334</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -776,8 +685,8 @@ try {
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>737</xloc>
-      <yloc>123</yloc>
+      <xloc>745</xloc>
+      <yloc>147</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -805,8 +714,8 @@ try {
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>883</xloc>
-      <yloc>242</yloc>
+      <xloc>891</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -834,45 +743,15 @@ try {
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1002</xloc>
-      <yloc>286</yloc>
+      <xloc>1010</xloc>
+      <yloc>310</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Switch &#x2f; Case</name>
-    <type>SwitchCase</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<fieldname>nombres</fieldname>
-<use_contains>N</use_contains>
-<case_value_type>String</case_value_type>
-<case_value_format/>
-<case_value_decimal/>
-<case_value_group/>
-<default_target_step/>
-<cases><case><value>PRODUCTO1</value>
-<target_step>Join Rows &#x28;cartesian product&#x29;</target_step>
-</case><case><value>PRODUCTO2</value>
-<target_step>Join Rows &#x28;cartesian product&#x29; 2</target_step>
-</case></cases>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1115</xloc>
-      <yloc>413</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Join Rows &#x28;cartesian product&#x29; 2</name>
-    <type>JoinRows</type>
+    <name>Sort rows</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -883,26 +762,29 @@ try {
            </partitioning>
       <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
       <prefix>out</prefix>
-      <cache_size>500</cache_size>
-      <main/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue/>
- <function>&#x3d;</function>
- <rightvalue>nombre_C</rightvalue>
- </condition>
-    </compare>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1221</xloc>
-      <yloc>445</yloc>
+      <xloc>1009</xloc>
+      <yloc>545</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table input 2</name>
+    <name>Table input</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -913,16 +795,78 @@ try {
            <schema_name/>
            </partitioning>
     <connection>conexion</connection>
-    <sql>SELECT nombre_C FROM categories&#xd;&#xa;ORDER BY RAND&#x28;&#x29;&#xd;&#xa;LIMIT 3</sql>
-    <limit>0</limit>
+    <sql>SELECT Id_Categorie, nombre_C FROM categories</sql>
+    <limit/>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1224</xloc>
-      <yloc>534</yloc>
+      <xloc>1213</xloc>
+      <yloc>635</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Id_Categorie</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1116</xloc>
+      <yloc>638</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>INNER</join_type>
+<step1>Sort rows</step1>
+<step2>Sort rows 2</step2>
+    <keys_1>
+      <key>id</key>
+    </keys_1>
+    <keys_2>
+      <key>Id_Categorie</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1012</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -938,11 +882,11 @@ try {
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>nombres</name>
+    <fields>      <field>        <name>nombre_C</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>nombre_C</name>
+      </field>      <field>        <name>nombres</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
@@ -953,8 +897,92 @@ try {
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1401</xloc>
-      <yloc>448</yloc>
+      <xloc>880</xloc>
+      <yloc>639</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>nombre_C</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>778</xloc>
+      <yloc>636</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>conexion</connection>
+    <schema/>
+    <table>products</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>categoria</column_name>
+          <stream_name>nombre_C</stream_name>
+        </field>
+        <field>
+          <column_name>nombre_P</column_name>
+          <stream_name>nombres</stream_name>
+        </field>
+        <field>
+          <column_name>precio_p</column_name>
+          <stream_name>precios</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>639</xloc>
+      <yloc>634</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
